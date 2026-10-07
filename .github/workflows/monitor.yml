@@ -1,11 +1,8 @@
 name: CEnT@HOME monitor
 
 on:
-  schedule:
-    # Every 20 minutes. Free on a PUBLIC repository.
-    # On a PRIVATE repository change this to "*/30 * * * *" to stay inside
-    # GitHub's 2,000 free minutes per month.
-    - cron: "*/20 * * * *"
+  # Main trigger: cron-job.org calls GitHub every 15 minutes (see README),
+  # because GitHub's own schedule is "best effort" and can skip hours.
   workflow_dispatch:
     inputs:
       action:
@@ -15,10 +12,14 @@ on:
         options:
           - check
           - test-email
+  # Backup trigger: GitHub's own schedule (free on a public repository).
+  schedule:
+    - cron: "*/20 * * * *"
 
 permissions:
   contents: write   # only to save state.json back to the repository
 
+# One check at a time; a check that is already waiting is replaced by the newest one.
 concurrency:
   group: cents-monitor
   cancel-in-progress: false
@@ -28,7 +29,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+        with:
+          ref: main   # always load the latest saved state, so nothing is emailed twice
 
       - name: Check the CISIA calendar
         env:
@@ -46,10 +49,17 @@ jobs:
         if: always() && inputs.action != 'test-email'
         run: |
           [ -f state.json ] || exit 0
+          cp state.json "$RUNNER_TEMP/state.json"
           git config user.name "cents-monitor"
           git config user.email "cents-monitor@users.noreply.github.com"
-          git add state.json
-          git diff --cached --quiet && { echo "State unchanged"; exit 0; }
-          git commit -m "Update monitor state [skip ci]"
-          git pull --rebase --quiet || true
-          git push
+          for attempt in 1 2 3; do
+            git fetch --quiet origin main
+            git reset --quiet --hard origin/main
+            cp "$RUNNER_TEMP/state.json" state.json
+            git add state.json
+            git diff --cached --quiet && { echo "State unchanged"; exit 0; }
+            git commit --quiet -m "Update monitor state [skip ci]"
+            git push --quiet origin HEAD:main && { echo "State saved"; exit 0; }
+            echo "Push attempt $attempt failed, retrying"; sleep 5
+          done
+          echo "::warning::Could not save state.json; the next check may repeat an alert."

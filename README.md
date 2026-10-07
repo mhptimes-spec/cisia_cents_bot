@@ -65,7 +65,31 @@ and add:
 3. Within a minute you should get a "test email" listing today's CEnT@HOME sessions.
    If it lands in Spam, mark it **Not spam** so real alerts arrive in your inbox.
 
-That's it. It now runs every 20 minutes by itself.
+### 5. Make the timing reliable (cron-job.org, free)
+
+GitHub's own schedule is "best effort": on 6–7 Oct 2026 it skipped checks for up to 6 hours, and a
+CEnT@HOME opening was missed. So a free outside timer, cron-job.org, starts a check every 15 minutes.
+GitHub's schedule stays on as a backup.
+
+1. **Create a GitHub key** at https://github.com/settings/personal-access-tokens/new
+   - Token name: `cron-job`. Expiration: 1 year (or no expiration).
+   - Repository access: **Only select repositories**, then choose `cisia_cents_bot`.
+   - Permissions → Repository permissions → **Actions: Read and write**. Nothing else.
+   - Click **Generate token** and copy it (it starts with `github_pat_`).
+2. **Create a free account** at https://cron-job.org and click **Create cronjob**.
+   - Title: `CEnT monitor`
+   - URL: `https://api.github.com/repos/mhptimes-spec/cisia_cents_bot/actions/workflows/monitor.yml/dispatches`
+   - Execution schedule: **Every 15 minutes**
+   - Open the **Advanced** tab:
+     - Request method: **POST**
+     - Headers: add `Authorization` = `Bearer github_pat_...` (your token), then
+       `Accept` = `application/vnd.github+json`
+     - Request body: `{"ref":"main"}`
+   - Click **Test run**. A result of **204 No Content** means it worked. Click **Save**.
+
+When the token expires, GitHub emails you; create a new one and paste it into the cron-job.org job.
+
+That's it. It now runs every 15 minutes by itself.
 
 ## When something goes wrong
 
