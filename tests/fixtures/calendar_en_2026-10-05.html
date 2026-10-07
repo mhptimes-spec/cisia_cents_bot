@@ -1,0 +1,377 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <title>Test day list</title>
+        <meta name="description" content="All test dates. ATTENTION: this list is continously updated so check it often.">
+        <meta property="og:description" content="All test dates. ATTENTION: this list is continously updated so check it often." />
+		<script type="text/javascript" src="browser/javascript/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="javascript/jquery.tablesorter.js"></script>
+		<script type="text/javascript" src="javascript/jquery.filtertable.js"></script>
+        <script src="resources/fontawesome-pro-6.5.1-web/js/solid.min.js" crossorigin="anonymous"></script>
+        <script src="resources/fontawesome-pro-6.5.1-web/js/fontawesome.min.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="resources/flags/flags.css" />
+		<link rel="stylesheet" href="javascript/tablesorter/style.css" type="text/css" id="" media="print, projection, screen" />
+        <style>
+            td {
+                text-align: center;
+            }
+        </style>
+		<script type="text/javascript">
+		$(document).ready(function()
+		{
+						$("#calendario").tablesorter({
+				// pass the headers argument and assing a object
+				dateFormat: "uk",
+				headers: {
+                    4: { sorter: false },
+					5: { sorter: false },
+					6: { sorter: false }
+				}
+			});
+			
+			$('#calendario').filterTable({
+				label: "Filter",
+				placeholder: "enter search keyword"
+			});
+            $('.filter-table').appendTo('.info-calendario-tolc');
+		});
+		</script>
+		<!-- new -->
+		<link rel="stylesheet" href="css/template_style/css/font.css" />
+		<link rel="stylesheet" href="css/template_style/css/styles.css?1763389875" />
+		<style type="text/css" media="screen">@import "css/template_style/css/cisia.css";</style>
+		<!-- new -->
+		<style type="text/css">
+        .left {text-align: left;}
+		h3 { font-size: 150%; font-weight: 600;font-family: 'open_sansbold', sans-serif; }
+        h3.title {font-family: 'open_sans', sans-serif; font-weight: 600; font-size: 19.5px;}
+        h3.payoff { font-family: 'open_sanslight', sans-serif; margin-top:20px; }
+        .info-calendario-header ul li {margin-bottom: 20px;}
+        .head {font-weight: normal; border: 1px solid #5091A2;}
+        table.tablesorter {margin-top: 0;}
+        table.tablesorter thead tr th {height: 54px; padding: 8px 10px 8px -1px; max-width: 245px;}
+        table.tablesorter tbody td { padding: 10px 8px 10px 8px; vertical-align: middle; max-width: 245px;}
+        a { color: black;}
+        .img_guida {margin-left: 8px;}
+        .left-payoff {font-size: 15px;}
+        #secondary {margin-top: 40px;}
+        #warning-tolc-ending {border: 1px solid #5091A2; display: flex;}
+        #warning-tolc-ending .icon-alarm {width: 43px; margin: auto; padding-left: 10px;}
+        #warning-tolc-ending .text-alarm { font-size: 12px; justify-content: center; padding: 5px; flex: auto;}
+		</style>
+	</head>
+	<body>
+	<!--[IE 9]>
+          <p class="chromeframe">Stai usando un browser <strong>non supportato</strong>. Per favore <a href="http://browsehappy.com/">aggiorna il tuo browser</a> o <a href="http://www.google.com/chromeframe/?redirect=true">attiva Google Chrome Frame</a> per far diventare pi&ugrave; potente il tuo browser.</p>
+      <![endif]-->
+
+      <!-- *** new *** -->
+      <!-- outer -->
+      <div id="outer">
+
+          <!-- header -->
+          <div id="header" class="cisia-theme clearfix">
+
+              <!-- meta-header -->
+              <div id="meta-header">
+
+                  <!-- content -->
+                  <div class="content clearfix">
+
+                      <!-- wrapprer-logo -->
+                      <div id="wrapprer-logo">
+
+                          <!-- site-link -->
+                          <a href="http://www.cisiaonline.it" id="site-link" title=""></a>
+                          <!-- site-link -->
+
+                      </div>
+                      <!-- wrapprer-logo -->
+
+                      <a href="calendario.php?tolc=cents&l=it&lingua=inglese" class="link-button"><img src="resources/flags/blank.gif" class="flag flag-it" alt="Gb" /></a>
+                  </div>
+                  <!-- content -->
+
+              </div>
+              <!-- meta-header -->
+
+              <!-- meta-navigation -->
+              <div id="meta-navigation">
+
+                  <!-- content -->
+                  <div class="content clearfix">
+
+                      <!-- show-nav-for-iphone -->
+                      <button type="button" class="show-nav-for-iphone cisia-theme" data-toggle="collapse" data-target="#nav">menu</button>
+                      <!-- show-nav-for-iphone -->
+
+                      <!-- nav-collapse -->
+                      <div id="nav" class="nav-collapse collapse">
+
+                          <!-- nav -->
+                          <div id="menu">
+                              <ul>
+                                  <li class="cisia-theme"><a href="http://www.cisiaonline.it/area-tematica-cisia/home-cisia/" title="">CISIA</a></li>
+
+                                  <li class="cisia-theme"><a href="http://www.cisiaonline.it/home-altri-test/" title="">Other tests</a></li>
+
+                                  <li class="cisia-theme"><a href="https://www.cisiaonline.it/tolc/tutto-sul-TOLC/tutto-sul-TOLC">TOLC</a></li>
+
+                                  <li class="cisia-theme"><a href="https://www.cisiaonline.it/cent/tutto-sul-CEnT/tutto-sul-CEnT">CEnT</a></li>
+                              </ul>
+                          </div>
+                          <!-- nav -->
+
+                      </div>
+                      <!-- nav-collapse -->
+
+                  </div>
+                  <!-- content -->
+
+              </div>
+              <!-- meta-navigation -->
+
+         </div>
+         <!-- header -->
+
+         <!-- main -->
+         <div id="main" class="clearfix">
+
+          	<div class="content clearfix" >
+                                <h3 class="title">AVAILABLE DATES</h3> <br/>
+                <div class="info-calendario-tolc">
+                                            <p class="left-payoff">Check the calendar and book your test from the <a href="https://testcisia.it/studenti_tolc/login_sso.php"><u>CISIA Student Area</u></a></p>
+                                                <p class="left-payoff"><b>When and where to book?</b> Read the <a href="https://guide.cisiaonline.it/en/home"><u>Guide</u></a><img src='https://tolc.i-cdn.it/img-tolc/guide_1.svg' class='img_guida'></p>
+                        <div id="secondary">
+                            <style type="text/css">
+ul.calendario_menu {
+    padding: 0;
+    margin-top: -15px;
+}
+ul.calendario_menu li {
+    display: inline-block;
+    border: 1px solid #06476a;
+    
+    border-radius: 3px;
+    padding: 5px;
+    margin: 3px;
+}
+ul.calendario_menu li a {
+    color: #06476a;
+}
+
+ul.calendario_menu li.active a,
+ul.calendario_menu li:hover a,
+ul.calendario_menu li a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+ul.calendario_menu li.default:hover,
+ul.calendario_menu li.default:hover a{
+    background-color: #06476a;
+    color: #fff;
+}
+
+ul.calendario_menu li.farmacia.active,
+ul.calendario_menu li.farmacia:hover a,
+ul.calendario_menu li.farmacia:hover{
+    background-color: #4A8779;
+}
+ul.calendario_menu li.economia.active,
+ul.calendario_menu li.economia:hover a,
+ul.calendario_menu li.economia:hover{
+    background-color: #814997;
+}
+ul.calendario_menu li.ingegneria{ margin-left: 0;}
+ul.calendario_menu li.ingegneria.active,
+ul.calendario_menu li.ingegneria:hover a,
+ul.calendario_menu li.ingegneria:hover{
+    background-color: #0098D6;
+}
+ul.calendario_menu li.scienze.active,
+ul.calendario_menu li.scienze:hover a,
+ul.calendario_menu li.scienze:hover{
+    background-color: #FDDD00;
+}
+ul.calendario_menu li.biologia.active,
+ul.calendario_menu li.biologia:hover a,
+ul.calendario_menu li.biologia:hover{
+    background-color: #F6A016;
+}
+ul.calendario_menu li.umanistica.active,
+ul.calendario_menu li.umanistica:hover a,
+ul.calendario_menu li.umanistica:hover{
+    background-color: #E73843;
+}
+ul.calendario_menu li.agraria.active,
+ul.calendario_menu li.agraria:hover a,
+ul.calendario_menu li.agraria:hover{
+    background-color: #a4d648;
+}
+
+ul.calendario_menu li.psicologia.active,
+ul.calendario_menu li.psicologia:hover a,
+ul.calendario_menu li.psicologia:hover{
+        background-color: #9E005D;
+}
+
+ul.calendario_menu li.medicina.active,
+ul.calendario_menu li.medicina:hover a,
+ul.calendario_menu li.medicina:hover{
+        background-color: #93d2cd;
+}
+
+ul.calendario_menu li.veterinaria.active,
+ul.calendario_menu li.veterinaria:hover a,
+ul.calendario_menu li.veterinaria:hover{
+        background-color: #6697B0;
+}
+
+ul.calendario_menu li.lauree_professionalizzanti.active,
+ul.calendario_menu li.lauree_professionalizzanti:hover a,
+ul.calendario_menu li.lauree_professionalizzanti:hover{
+        background-color: #005C81;
+}
+
+ul.calendario_menu li.scienze_politiche.active,
+ul.calendario_menu li.scienze_politiche:hover a,
+ul.calendario_menu li.scienze_politiche:hover{
+        background-color: #FFBE98;
+}
+
+ul.calendario_menu li.cents.active,
+ul.calendario_menu li.cents:hover a,
+ul.calendario_menu li.cents:hover{
+        background-color: #004d8a;
+}
+</style><ul class='calendario_menu'><li class='ingegneria '><a href='calendario.php?tolc=ingegneria'>TOLC-I</a></li><li class='economia '><a href='calendario.php?tolc=economia'>TOLC-E</a></li><li class='scienze '><a href='calendario.php?tolc=scienze'>TOLC-S</a></li><li class='farmacia '><a href='calendario.php?tolc=farmacia'>TOLC-F</a></li><li class='umanistica '><a href='calendario.php?tolc=umanistica'>TOLC-SU</a></li><li class='biologia '><a href='calendario.php?tolc=biologia'>TOLC-B</a></li><li class='agraria '><a href='calendario.php?tolc=agraria'>TOLC-AV</a></li><li class='psicologia '><a href='calendario.php?tolc=psicologia'>TOLC-PSI</a></li><li class='scienze_politiche '><a href='calendario.php?tolc=scienze_politiche'>TOLC-SPS</a></li><li class='lauree_professionalizzanti '><a href='calendario.php?tolc=lauree_professionalizzanti'>TOLC-LP</a></li><li class='cents active'><a href='calendario.php?tolc=cents&lingua=inglese'>CEnT-S</a></li><li class='default' ><a href='calendario.php'>All tests</a></li></ul>                        </div>
+                        <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 20% auto;
+            padding: 6px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: -5px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .avviso-riapertura-date {
+            font-size: 24px;
+        }
+        @media screen and (max-width: 950px) {
+            .modal-content {
+                margin: 40% auto;
+            }
+        }
+    </style>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span><br>
+            <p class="avviso-riapertura-date">TOLC 2023 registrations are open from 17 January</p>
+        </div>
+    </div>
+    <script>
+        const alertDate = 1673909999000,
+          onloadDate = Date.now(),
+          tOut = alertDate - onloadDate;
+        const modal = document.getElementById("myModal");
+        const span = document.getElementsByClassName("close")[0];
+        if(tOut > 0) {
+            document.addEventListener('DOMContentLoaded', function() {
+                modal.style.display = "block";
+            })
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    </script>
+                </div>
+            <div id="warning-tolc-ending">
+                <div class="icon-alarm"><i class="fa-solid fa-alarm-exclamation fa-shake fa-xl"></i></div>
+                <div class="text-alarm"><b>BOOKINGS CLOSE AT 2:00 PM (CET)</b><br>Look at the test starting time on the Payment and enrolment receipt. Download the receipt from your <a href='https://testcisia.it/studenti_tolc/login_sso.php'><u>CISIA Student Area</u></a> when payment is completed.</div>
+            </div>
+			<table id="calendario" class="tablesorter" style="width: 100%;">
+				<thead>
+                <tr class="head">
+                    <th>FORMAT</th>
+                    <th>UNIVERSITY</th>
+                    <th>REGION / FOREIGN COUNTRY</th>
+                    <th>CITY</th>
+                    <th>BOOKINGS DEADLINE</th>
+                    <th>SEATS</th>
+                    <th>STATE</th>
+                    <th>DATE</th>
+                </tr>
+				</thead>
+				<tbody>
+			<tr style='background-color: white; color: #424242;'><td>CENT@UNI</td><td>Universita' degli studi di Brescia</td><td>LOMBARDIA</td><td>BRESCIA</td><td>09/10/2026</td><td class="center">---</td><td class="center"><span style="color: Crimson;font-weight:bold;text-decoration: underline;" title='seats are fully booked, you cannot book the test'>NOT LONGER AVAILABLE</span></td><td>15/10/2026</td></tr><tr><td>CENT@UNI</td><td>Universita' di Siena - Economia</td><td>TOSCANA</td><td>SIENA</td><td>09/10/2026</td><td class="center">23</td><td class="center">
+                                    <a href="https://testcisia.it/studenti_tolc/login_sso.php" target='_blank'><span style="color: LimeGreen;font-weight:bold;text-decoration: underline;" title='registrations are open, you can book your test'>AVAILABLE SEATS</span></a></td><td>15/10/2026</td></tr><tr style='background-color: white; color: #424242;'><td>CENT@UNI</td><td>Sapienza Universita' di Roma - Facolta' di Ingegneria (I3S) - Dipartimento di Scienze statistiche</td><td>LAZIO</td><td>ROMA</td><td>09/10/2026</td><td class="center">---</td><td class="center"><span style="color: Crimson;font-weight:bold;text-decoration: underline;" title='seats are fully booked, you cannot book the test'>NOT LONGER AVAILABLE</span></td><td>15/10/2026</td></tr><tr style='background-color: white; color: #424242;'><td>CENT@UNI</td><td>Sapienza Universita' di Roma - Facolta' di Economia</td><td>LAZIO</td><td>ROMA</td><td>09/10/2026</td><td class="center">---</td><td class="center"><span style="color: Crimson;font-weight:bold;text-decoration: underline;" title='seats are fully booked, you cannot book the test'>NOT LONGER AVAILABLE</span></td><td>15/10/2026</td></tr><tr style='background-color: white; color: #424242;'><td>CENT@UNI</td><td>Universita' degli studi di Messina</td><td>SICILIA</td><td>MESSINA</td><td>09/10/2026</td><td class="center">---</td><td class="center"><span style="color: Crimson;font-weight:bold;text-decoration: underline;" title='seats are fully booked, you cannot book the test'>NOT LONGER AVAILABLE</span></td><td>15/10/2026</td></tr><tr style='background-color: white; color: #424242;'><td>CENT@HOME</td><td>Università degli studi di Perugia</td><td>UMBRIA</td><td>PERUGIA</td><td>09/10/2026</td><td class="center">---</td><td class="center"><span style="color: Crimson;font-weight:bold;text-decoration: underline;" title='seats are fully booked, you cannot book the test'>NOT LONGER AVAILABLE</span></td><td>15/10/2026</td></tr><tr style='background-color: white; color: #424242;'><td>CENT@HOME</td><td>Sapienza Università di Roma</td><td>LAZIO</td><td>ROMA</td><td>09/10/2026</td><td class="center">---</td><td class="center"><span style="color: Crimson;font-weight:bold;text-decoration: underline;" title='seats are fully booked, you cannot book the test'>NOT LONGER AVAILABLE</span></td><td>15/10/2026</td></tr><tr style='background-color: white; color: #424242;'><td>CENT@HOME</td><td>Università degli studi di Milano Bicocca</td><td>LOMBARDIA</td><td>MILANO</td><td>09/10/2026</td><td class="center">---</td><td class="center"><span style="color: Crimson;font-weight:bold;text-decoration: underline;" title='seats are fully booked, you cannot book the test'>NOT LONGER AVAILABLE</span></td><td>15/10/2026</td></tr><tr style='background-color: white; color: #424242;'><td>CENT@HOME</td><td>Università degli studi di Brescia</td><td>LOMBARDIA</td><td>BRESCIA</td><td>09/10/2026</td><td class="center">---</td><td class="center"><span style="color: Crimson;font-weight:bold;text-decoration: underline;" title='seats are fully booked, you cannot book the test'>NOT LONGER AVAILABLE</span></td><td>15/10/2026</td></tr><tr style='background-color: white; color: #424242;'><td>CENT@HOME</td><td>Università degli studi di Teramo</td><td>ABRUZZO</td><td>TERAMO</td><td>09/10/2026</td><td class="center">---</td><td class="center"><span style="color: Crimson;font-weight:bold;text-decoration: underline;" title='seats are fully booked, you cannot book the test'>NOT LONGER AVAILABLE</span></td><td>15/10/2026</td></tr><tr><td>CENT@UNI</td><td>Università degli studi di Udine</td><td>FRIULI-VENEZIA GIULIA</td><td>UDINE</td><td>09/10/2026</td><td class="center">12</td><td class="center">
+                                    <a href="https://testcisia.it/studenti_tolc/login_sso.php" target='_blank'><span style="color: LimeGreen;font-weight:bold;text-decoration: underline;" title='registrations are open, you can book your test'>AVAILABLE SEATS</span></a></td><td>15/10/2026</td></tr>							<tbody>
+						</table>
+						<p>For any question or further information please contact our <a href="http://helpdesk.cisiaonline.it/" title="Help Desk" style="color: #5091A2">Help Desk</a>.</p>
+						<!-- Fine contenuti -->
+						<div class="clear_centrale"><hr /></div>
+					</div>
+					<!-- Fine articoli centrali -->
+				</div>
+				<!-- Fine struttura centrale -->
+			<!-- *** new *** -->
+			</div>
+			<!-- content -->
+		</div>
+		<!-- main -->
+    </div>
+    <!-- outer -->
+	<!-- footer -->
+	<div id="footer" class="cisia-theme">
+		<div class="content clearfix">
+			<div class="address pull-left" style="text-align: left;">CISIA - Via Giuseppe Malagoli, 12 - 56124 Pisa - P.I./C.F. 01951400504
+			<br><a href="http://www.cisiaonline.it/area-tematica-cisia/amministrazione-trasparente/" target="blank" title="Transparent Administration [opens in new window]">Transparent Administration [opens in new window]</a></div>
+
+			<div class="pull-right">
+				<ul>
+					<li><a href="https://cisiaonline.it/en/tolc/all-about-tolc/faqs-tolc">FAQ</a></li>
+					<li><a href="http://www.cisiaonline.it/privacy/">Privacy</a></li>
+					<li><a href="http://www.cisiaonline.it/mappa-del-sito/">Sitemap</a></li>
+					<li><a href="http://www.cisiaonline.it/contatti/">Contacts</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- footer -->
+	<!-- *** new *** -->
+	</body>
+</html>

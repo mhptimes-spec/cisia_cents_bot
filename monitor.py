@@ -19,9 +19,11 @@ import os
 import smtplib
 import sys
 import time
+import unicodedata
 import urllib.request
 from datetime import datetime
 from email.message import EmailMessage
+from email.utils import formataddr, formatdate, make_msgid
 from html.parser import HTMLParser
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -238,15 +240,35 @@ def send_email(subject: str, body: str) -> None:
     if not sender or not password or not to:
         raise RuntimeError("Email is not set up: add the GMAIL_ADDRESS and GMAIL_APP_PASSWORD "
                            "secrets (and optionally EMAIL_TO) in GitHub.")
-    msg = EmailMessage()
-    msg["From"] = f"CEnT@HOME monitor <{sender}>"
-    msg["To"] = ", ".join(to)
-    msg["Subject"] = subject
-    msg.set_content(body)
+    # Keep the subject plain ASCII (e.g. "Università" -> "Universita") so no header encoding is needed.
+    subject = unicodedata.normalize("NFKD", subject.replace("–", "-")).encode("ascii", "ignore").decode()
+    sent, failed = 0, []
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as smtp:
         smtp.login(sender, password)
-        smtp.send_message(msg)
-    print(f"  email sent to {len(to)} recipient(s): {subject}")
+        # One separate, standard message per person (Gmail treats this better than one group email).
+        for address in to:
+            msg = EmailMessage()
+            msg["From"] = formataddr(("CEnT@HOME monitor", sender))
+            msg["To"] = address
+            msg["Subject"] = subject
+            msg["Date"] = formatdate(localtime=True)
+            msg["Message-ID"] = make_msgid(domain=sender.split("@")[-1])
+            msg.set_content(body)
+            try:
+                smtp.send_message(msg)
+                sent += 1
+            except smtplib.SMTPException as exc:
+                failed.append(address)
+                print(f"::warning::Email to {_mask(address)} failed: {exc}")
+            time.sleep(1)
+    print(f"  email sent to {sent} of {len(to)} recipient(s): {subject}")
+    if not sent:
+        raise RuntimeError("The email could not be sent to anyone.")
+
+
+def _mask(address: str) -> str:
+    name, _, domain = address.partition("@")
+    return f"{name[:3]}***@{domain}"
 
 
 # ---------------------------------------------------------------- main
